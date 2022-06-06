@@ -8,26 +8,40 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <main>
         <header>
             <h1>Precios y Descuentos</h1>
-        </header>    
+            <figure>
+                <img src="https://api.iconify.design/mdi:store-plus.svg" alt="icono tienda">
+            </figure>
+        </header>     
+    <main>   
         <section>
             <h2>Calcula el precio de tus productos con descuento.</h2>
 
             <form>
                 <label for="inputprecio">
+                    <span>
+                        <img src="https://api.iconify.design/mdi:cash.svg" alt="dinero">
+                    </span>
                     Cual es el precio de tu producto?
                 </label>
                 <input id="inputprecio" type="number">
                 <label for="inputdescuento">
-                    cual es el porgentaje de descuento?
+                    <span>
+                        <img src="https://api.iconify.design/mdi:sale.svg" alt="descuento icono">
+                    </span>
+                    cual es el porcentaje de descuento?
                 </label>
                 <input id="inputdescuento" type="number">
 
-                <button id="btnCalcular" type="button">Calcular el precio con descuento.</button>
+                <button id="btnCalcular" type="button">Calcular el precio con descuento.
+                    <span><img src="https://api.iconify.design/mdi:percent-circle.svg" alt="icono descuento"></span>
+                </button>
             </form>
-            <p id="precio-resultado"></p>
+            <div id="precio-resultado">
+                
+            </div>
+            <div id="div-cupones"></div>
         </section>    
     </main>
 
