@@ -12,6 +12,14 @@ function calcularPrecioCondescuento(precio , descuento) {
 const cupones = ["nuevo" , "lealtad" , "sorpresa"];
 
 
+function buscarCupon(cupondesc) {
+    const cuponesAbuscar = cupones.filter(cupon => cupon === cupondesc);
+    console.log(cuponesAbuscar);    
+    return cuponesAbuscar;
+    
+   
+}
+
 const inputprecio = document.getElementById('inputprecio');
 const inputdescuento = document.getElementById('inputdescuento');
 
@@ -26,22 +34,25 @@ const imagenpreciofinal = document.getElementById('imagen-precio-final');
 
 btnCalcular.addEventListener('click' , () =>{
     const precioValue = inputprecio.value;
-    const descuentoValue = inputdescuento.value;
+    let descuentoValue = inputdescuento.value;
 
-    const precioConDescuento = calcularPrecioCondescuento(precioValue, descuentoValue);
+    const descuentoConCupon = buscarCupon(descuentoValue);
 
-    preciorResultado.innerText = `El precio con descuento es de $: ${precioConDescuento}`;
-    const parrafo = document.createElement('P');
-    const btnCupones = document.createElement('button');
-    parrafo.textContent = `Tienes cupones ?`;
-    btnCupones.textContent = `Aplicalos Aqui.`;
-    btnCupones.id = `MIBTN`;
-    fragment.appendChild(parrafo);
-    fragment.appendChild(btnCupones);
+    if(descuentoConCupon == "") {
+        alert('lo siento tu cupon no es valido')
+    }else{
+        descuentoValue = 15;
 
-    divcupones.appendChild(fragment);
-   
+        const precioConDescuento = calcularPrecioCondescuento(precioValue, descuentoValue);
+        preciorResultado.innerText = `El precio con descuento es de $: ${precioConDescuento}`;
+    }
+
+
+
 });
+
+
+
 
 /*console.log({
     precioOriginal,
